@@ -1,0 +1,62 @@
+NAME
+    Perinci::Sub::Property::exit_on_error - Die on non-success result
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+    Without exit_on_error:
+
+     # on successful call
+     f(...); # [200, "OK"]
+
+     # on non-successful call
+     f(...); # [404, "Not found"]
+
+    With "exit_on_error => 1":
+
+     # on successful call
+     f(...); # [200, "OK"]
+
+     # on non-successful call
+     f(...); # print message "Call f() failed with 404 status: Not found" to STDERR and exits 104
+
+    To customize what statuses are considered error: "exit_on_error => {
+    success_statuses => '^2..$' }".
+
+DESCRIPTION
+    This property sets so that function calls "exit()" when result status is
+    a non-successful one. Successful statuses by default include 2xx and 304
+    ('^(2..|304)$').
+
+    Exit code is currently set to (like in Perinci::CmdLine) and might be
+    customizable in the future.
+
+SEE ALSO
+    Perinci
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-Sub-Property-exit_on_error>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-Sub-Property-exit_on_error>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-Property-
+    exit_on_error>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2014 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
